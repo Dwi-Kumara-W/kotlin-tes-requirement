@@ -5,6 +5,7 @@ import android.database.Cursor
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test_recruitment.sqllite.user
 
@@ -18,6 +19,7 @@ class home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        val btn_menu_order = findViewById<RelativeLayout>(R.id.btn_daftar_order)
         val btn_logout = findViewById<Button>(R.id.btn_logout)
 
         dbHelper = user(this)
@@ -26,9 +28,17 @@ class home : AppCompatActivity() {
         cursor = db.rawQuery("SELECT * FROM USER", null)
         cursorid = db.rawQuery("SELECT id_device FROM USER", null)
 
+        btn_menu_order.setOnClickListener(View.OnClickListener {
+            val godaftarorder = Intent(this@home, order::class.java)
+            startActivity(godaftarorder)
+//            finish()
+        })
+
         btn_logout.setOnClickListener(View.OnClickListener {
             proses_logout()
         })
+
+
 
     }
 
