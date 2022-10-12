@@ -9,7 +9,7 @@ import retrofit2.http.POST
 interface ApiEndpoint {
 
     @FormUrlEncoded
-    @POST("create_mahasiswa.php")
+    @POST("login.php")
     fun login(
         @Field("username") username: String?,
         @Field("password") password: String?
