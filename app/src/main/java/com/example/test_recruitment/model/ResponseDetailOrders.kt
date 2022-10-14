@@ -1,16 +1,12 @@
 package com.example.test_recruitment.model
 
-data class ResponseOrder(
+data class ResponseDetailOrders(
 	val pesan: String? = null,
-	val data: List<DataItem?>? = null,
-	val kode: Int? = null
-)
-
-data class DataItem(
-	val id: Int? = null,
 	val nama_produk: String? = null,
+	val kode: Int? = null,
+	val id: String? = null,
 	val target: String? = null,
-	val jumlah_aksi: Int? = null,
+	val jumlah_aksi: String? = null,
 	val status: String? = null
 )
 

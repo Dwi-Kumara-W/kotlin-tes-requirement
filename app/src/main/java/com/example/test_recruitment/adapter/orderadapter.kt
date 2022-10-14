@@ -1,5 +1,6 @@
 package com.example.test_recruitment.adapter
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test_recruitment.R
+import com.example.test_recruitment.detailorder
 import com.example.test_recruitment.model.DataItem
 
 class orderadapter(val dataOrder: List<DataItem?>?) : RecyclerView.Adapter<orderadapter.MyViewHolder>() {
@@ -28,6 +30,14 @@ class orderadapter(val dataOrder: List<DataItem?>?) : RecyclerView.Adapter<order
         holder.TV_nama_produk.text = dataOrder?.get(position)?.nama_produk
         holder.TV_status.text = dataOrder?.get(position)?.status
         holder.TV_jumlah_aksi.text = dataOrder?.get(position)?.jumlah_aksi.toString()
+
+        holder.itemView.setOnClickListener(View.OnClickListener { view ->
+            val id = dataOrder?.get(position)?.id
+            val i = Intent(view.context, detailorder::class.java)
+            i.putExtra("id", id)
+            view.context.startActivity(i)
+//            Toast.makeText(holder.itemView.context, "${nim}", Toast.LENGTH_SHORT).show()
+        })
 
     }
 

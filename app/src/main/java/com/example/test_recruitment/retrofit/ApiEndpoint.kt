@@ -1,5 +1,6 @@
 package com.example.test_recruitment.retrofit
 
+import com.example.test_recruitment.model.ResponseDetailOrders
 import com.example.test_recruitment.model.ResponseLogin
 import com.example.test_recruitment.model.ResponseOrder
 import retrofit2.Call
@@ -9,6 +10,12 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiEndpoint {
+
+    @FormUrlEncoded
+    @POST("retrieve_detail_order.php")
+    fun detail(
+        @Field("id") id: Int?
+    ): Call<ResponseDetailOrders>?
 
     @FormUrlEncoded
     @POST("login.php")
